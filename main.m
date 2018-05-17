@@ -1,12 +1,12 @@
 %% Terminal with filters
-% Terminal with filters for visualization signal from ELEMIO sensor (version for Arduino)
-% 2018-04-18 by ELEMIO (https://github.com/ELEMIO/Matlab-terminal)
+% Terminal with filters for visualization signal from ELEMYO sensor (version for Arduino)
+% 2018-04-18 by ELEMYO (https://github.com/ELEMYO/Matlab-terminal)
 % 
 % Changelog:
 %     2018-04-18 - initial release
 
 %% Code is placed under the MIT license
-% Copyright (c) 2018 ELEMIO
+% Copyright (c) 2018 ELEMYO
 % 
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@ Graphics % File with visual data
 Handles = guihandles(Fig); % Find graphics elements
 
 %% Variables for communication
-COM = 'COM23'; % COM port of Arduino
+COM = 'COM2'; % COM port of Arduino
 BaudRate = 115200; % Baudrate of communication
 
 %% Variables
@@ -149,6 +149,7 @@ while(ishandle(1))  % While exists figure
         
         %% Update plot data
         set(MyoData, 'XData', Data(1:l,2), 'YData',  Data_filtered(1:l,1) + offset);
+        set(Handles.main_axes, 'YLim', [min(Data_filtered(1:l,1)), max(Data_filtered(1:l,1))]);
         pause(0.05);
         
         l = l + length(v); % Update data index   

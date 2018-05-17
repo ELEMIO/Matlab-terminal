@@ -1,12 +1,12 @@
 %% Terminal with filters
-% Terminal with filters for visualization signal from ELEMIO sensor (version for Arduino)
-% 2018-04-18 by ELEMIO (https://github.com/ELEMIO/Matlab-terminal)
+% Terminal with filters for visualization signal from ELEMYO sensor (version for Arduino)
+% 2018-04-18 by ELEMYO (https://github.com/ELEMYO/Matlab-terminal)
 % 
 % Changelog:
 %     2018-04-18 - initial release
 
 %% Code is placed under the MIT license
-% Copyright (c) 2018 ELEMIO
+% Copyright (c) 2018 ELEMYO
 % 
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal
@@ -65,7 +65,7 @@ set(ax,'Visible', 'off');
 axes('Parent',hsp1,...
     'Tag', 'main_axes', ...
     'Units', 'normalized', ...
-    'Position',[.05 .1 .92 .76], ...
+    'Position',[.055 .1 .92 .76], ...
     'NextPlot','add',...
     'Xlim', [0 10], ...
     'Ylim', [0 1100], ...
@@ -76,7 +76,8 @@ axes('Parent',hsp1,...
     'XGrid', 'on', ...
     'YGrid', 'on');
 
-xlabel('t, c');
+xlabel('Time, s');
+ylabel('Data');
 
 %% Graph
 MyoData = plot(0,0, 'Color', [1 0.2 0.2], 'LineWidth', 1);
