@@ -1,5 +1,5 @@
 %% Terminal with filters
-% Terminal with filters for visualization signal from ELEMYO sensor (version for Arduino)
+% Terminal with filters for visualization signal from ELEMYO sensor
 % 2018-04-18 by ELEMYO (https://github.com/ELEMYO/Matlab-terminal)
 % 
 % Changelog:
