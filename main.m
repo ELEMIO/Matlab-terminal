@@ -36,14 +36,13 @@ Graphics % File with visual data
 Handles = guihandles(Fig); % Find graphics elements
 
 %% Variables for communication
-COM = 'COM2'; % COM port of Arduino
+COM = 'COM4'; % COM port of Arduino
 BaudRate = 115200; % Baudrate of communication
 
 %% Variables
 l = 2; % Index of the data point
 Data = zeros(1, 2); % Array of data points
 v = 0; % Value from COM port
-offset = 0; % Graph offset
 
 %% Start the serial communication
 s = serial(COM,'BaudRate',BaudRate);
@@ -124,7 +123,6 @@ while(ishandle(1))  % While exists figure
         W1_stop = str2double( Handles.W1_stop.String );
         W2_pass = str2double( Handles.W2_pass.String );
         W2_stop = str2double( Handles.W2_stop.String );
-        offset = str2double( Handles.Offset.String );
         % Bandpass filter
         if (Handles.Bandpass.Value == 1) && (Handles.Bandstop.Value == 0)
             [b_pass,a_pass] = butter(order_pass, [W1_pass / (Sample_freq / 2), W2_pass / (Sample_freq / 2)], 'bandpass');
@@ -148,8 +146,8 @@ while(ishandle(1))  % While exists figure
         end
         
         %% Update plot data
-        set(MyoData, 'XData', Data(1:l,2), 'YData',  Data_filtered(1:l,1) + offset);
-        set(Handles.main_axes, 'YLim', [min(Data_filtered(1:l,1)), max(Data_filtered(1:l,1))]);
+        set(MyoData, 'XData', Data(1:l,2), 'YData',  Data_filtered(1:l,1));
+        set(Handles.main_axes, 'YLim', [min(Data_filtered(1:l,1)), max(Data_filtered(1:l,1)) + 1]);
         pause(0.05);
         
         l = l + length(v); % Update data index   
